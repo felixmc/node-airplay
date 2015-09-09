@@ -206,7 +206,7 @@ Client.prototype.serverInfo = function (callback) {
             };
         }
         else {
-            this.emit('error', { type: 'serverInfo', res: res });
+            //this.emit('error', { type: 'serverInfo', res: res });
         }
 
         if (callback) {
