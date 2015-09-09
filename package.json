@@ -9,7 +9,7 @@
   "contributors": [],
   "dependencies": {
     "mdns": "https://github.com/zfkun/node_mdns/tarball/master",
-    "plist": "~1.1.0"
+    "plist": "https://github.com/tajddin/plist.js.git"
   },
   "keywords": [
     "apple",
