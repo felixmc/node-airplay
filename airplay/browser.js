@@ -10,6 +10,8 @@ var util = require( 'util' );
 var events = require( 'events' );
 var mdns = require( 'mdns' );
 
+mdns.Browser.defaultResolverSequence[1] = 'DNSServiceGetAddrInfo' in mdns.dns_sd ? mdns.rst.DNSServiceGetAddrInfo() : mdns.rst.getaddrinfo({families:[4]});
+
 var Device = require( './device' ).Device;
 
 
@@ -31,17 +33,6 @@ Browser.prototype.init = function ( options ) {
     var nextDeviceId = 0;
 
     this.devices = {};
-
-    options = options || {}
-    var sequence = [
-      mdns.rst.DNSServiceResolve(),
-      'DNSServiceGetAddrInfo' in mdns.dns_sd ? mdns.rst.DNSServiceGetAddrInfo() : mdns.rst.getaddrinfo({families:[4]}),
-      mdns.rst.makeAddressesUnique()
-    ];
-
-    options = Object.assign(options, {
-      resolverSequence: sequence
-    })
 
     this.browser = mdns.createBrowser( mdns.tcp( 'airplay' ), options );
     this.browser.on( 'serviceUp', function( info ) {
