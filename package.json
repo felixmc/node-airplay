@@ -8,7 +8,7 @@
   },
   "contributors": [],
   "dependencies": {
-    "mdns": "https://github.com/zfkun/tarball/master",
+    "mdns": "https://github.com/zfkun/node_mdns/tarball/master",
     "plist": "git+https://github.com/tajddin/plist.js.git"
   },
   "keywords": [
